@@ -1,6 +1,4 @@
-
 import { useNavigate } from "react-router-dom";
-
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -10,86 +8,124 @@ const Dashboard = () => {
     navigate("/");
   };
 
-
-
-
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-slate-100">
 
       {/* Navbar */}
-      <div className="flex justify-between items-center bg-red-600 text-white px-8 py-4 shadow-md">
-        <h1 className="text-xl font-semibold">
-          Anaemia Prediction System 🏥
-        </h1>
-
-        <button
-            onClick={handleLogout}
-            className="bg-white text-red-600 px-4 py-2 rounded-md font-semibold"
-        >
-            Logout
-        </button>
+      <div className="flex justify-between items-center bg-slate-900 text-white px-10 py-4 shadow-lg">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">🩺</span>
+          <h1 className="text-xl font-semibold tracking-wide">
+            Anaemia AI Detection System
+          </h1>
         </div>
 
+        <button
+          onClick={handleLogout}
+          className="bg-slate-700 px-4 py-2 rounded-lg hover:bg-slate-600 transition"
+        >
+          Logout
+        </button>
+      </div>
+
       {/* Welcome Section */}
-      <div className="px-8 py-6">
-        <h2 className="text-2xl font-bold text-gray-800">
+      <div className="px-10 py-8">
+        <h2 className="text-3xl font-bold text-slate-800">
           Welcome Doctor 👨‍⚕️
         </h2>
-        <p className="text-gray-500 mt-1">
-          Monitor and manage anaemia prediction records.
+        <p className="text-slate-500 mt-2">
+          Monitor predictions, analyze results and manage patient records.
         </p>
       </div>
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8">
+      {/* Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10">
 
-        <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition border-l-4 border-blue-500">
-          <h3 className="text-gray-500">Total Predictions</h3>
-          <p className="text-3xl font-bold mt-2">120</p>
+        <div className="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+          <p className="text-slate-500 text-sm">Total Predictions</p>
+          <div className="flex justify-between items-center mt-2">
+            <h3 className="text-3xl font-bold text-slate-800">120</h3>
+            <span className="text-2xl">📊</span>
+          </div>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition border-l-4 border-red-500">
-          <h3 className="text-gray-500">Anaemic Cases</h3>
-          <p className="text-3xl font-bold mt-2 text-red-600">45</p>
+        <div className="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+          <p className="text-slate-500 text-sm">Anaemia Detected</p>
+          <div className="flex justify-between items-center mt-2">
+            <h3 className="text-3xl font-bold text-red-500">45</h3>
+            <span className="text-2xl">🩸</span>
+          </div>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition border-l-4 border-green-500">
-          <h3 className="text-gray-500">Normal Cases</h3>
-          <p className="text-3xl font-bold mt-2 text-green-600">75</p>
+        <div className="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+          <p className="text-slate-500 text-sm">Normal Cases</p>
+          <div className="flex justify-between items-center mt-2">
+            <h3 className="text-3xl font-bold text-emerald-600">75</h3>
+            <span className="text-2xl">✅</span>
+          </div>
         </div>
 
       </div>
 
-      {/* Action Buttons */}
-      <div className="px-8 py-8 flex flex-wrap gap-4">
+      {/* Action Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-10 py-10">
 
-        <button
+        <div
           onClick={() => navigate("/predict")}
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+          className="bg-indigo-600 text-white p-8 rounded-xl shadow-md hover:bg-indigo-700 cursor-pointer transition"
         >
-          ➕ New Prediction
-        </button>
+          <h3 className="text-xl font-semibold">➕ New Prediction</h3>
+          <p className="text-sm opacity-80 mt-2">
+            Run anaemia detection using medical inputs and images
+          </p>
+        </div>
 
-        <button
+        <div
           onClick={() => navigate("/history")}
-          className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
+          className="bg-purple-600 text-white p-8 rounded-xl shadow-md hover:bg-purple-700 cursor-pointer transition"
         >
-          📁 View History
-        </button>
+          <h3 className="text-xl font-semibold">📁 Prediction History</h3>
+          <p className="text-sm opacity-80 mt-2">
+            View previous prediction results and explanations
+          </p>
+        </div>
 
-        <button
+        <div
           onClick={() => navigate("/analytics")}
-          className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition"
+          className="bg-teal-600 text-white p-8 rounded-xl shadow-md hover:bg-teal-700 cursor-pointer transition"
         >
-          📊 Analytics
-        </button>
-        <button
-            onClick={() => navigate("/patients")}
-            className="bg-green-500 text-white px-4 py-2 rounded"
-            >
-            Manage Patients
-        </button>
+          <h3 className="text-xl font-semibold">📊 Analytics Dashboard</h3>
+          <p className="text-sm opacity-80 mt-2">
+            Analyze trends and model performance statistics
+          </p>
+        </div>
 
+        <div
+          onClick={() => navigate("/patients")}
+          className="bg-emerald-600 text-white p-8 rounded-xl shadow-md hover:bg-emerald-700 cursor-pointer transition"
+        >
+          <h3 className="text-xl font-semibold">👨‍⚕️ Manage Patients</h3>
+          <p className="text-sm opacity-80 mt-2">
+            Add new patients and manage existing records
+          </p>
+        </div>
+
+      </div>
+
+      {/* System Info */}
+      <div className="px-10 pb-10">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
+          <h3 className="text-lg font-semibold text-slate-800 mb-2">
+            System Overview
+          </h3>
+
+          <p className="text-slate-600 text-sm leading-relaxed">
+            This AI-powered Anaemia Detection System analyzes medical images
+            and blood parameters to detect anaemia conditions. Doctors can
+            perform predictions, view explainable AI insights, analyze
+            statistics and track patient health records efficiently.
+          </p>
+        </div>
       </div>
 
     </div>
